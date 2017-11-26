@@ -1,0 +1,76 @@
+JS Object API--------
+
+1) Creating object
+
+function Car(desc){
+this.desc=desc;
+this.color="red";
+}
+
+Car.prototype = {
+getInfo:function(){
+return 'A '+ this.color+' '+ this.desc+'.';
+}
+}
+
+var car = Object.create(Car.prototype); // Object.create() method
+
+car.color = "blue";
+car.desc="car";
+alert(car.getInfo());
+--------------------------
+
+2) Defining properties
+
+Object.defineProperties(car, {
+'color':{
+value:"yellow"
+},
+'desc':{
+value:"baloon"
+}
+}
+)
+
+alert(car.getInfo());
+--------------------------
+
+3) defineProperty() - define new or update existing prop of an object
+
+Object.defineProperty(car, 'desc', {
+value:"new color"
+})
+alert(car.getInfo());
+-------------------------
+
+4)Object.entries() - return array of key value pair that object hil
+
+function Car(desc){
+this.desc=desc;
+this.color="red";
+}
+console.log(Object.entries(car));
+------------------------
+
+5) Object.keys() - return array of objects enum properties
+
+function Car(desc){
+this.desc=desc;
+this.color="red";
+}  
+
+console.log(Object.keys(car));
+------------------------
+
+6) Object.assign() - assign properties of source object to target
+
+function Car(desc){
+this.desc=desc;
+this.color="red";
+}  
+
+var car2 = Object.assign({},car);
+console.log(car2);
+-----------------------
+
+7) Object.isSealed() - 
